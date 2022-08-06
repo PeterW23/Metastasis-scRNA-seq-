@@ -10,11 +10,11 @@ cells = CreateSeuratObject(counts = data$`Gene Expression`)
 cells[["percent.mt"]] <- PercentageFeatureSet(cells, pattern = "^MT-")
 VlnPlot(cells, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)
 
-cells <- subset(cells, subset = nFeature_RNA > 200 & nFeature_RNA < 9000 & percent.mt < 25) # change this
+cells <- subset(cells, subset = nFeature_RNA > 200 & nFeature_RNA < 9000 & percent.mt < 25)
 VlnPlot(cells, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)
 
 cells <- NormalizeData(cells, normalization.method = "LogNormalize", scale.factor = 10000) 
-cells <- FindVariableFeatures(cells, selection.method = "vst", nfeatures = 2000) # change this
+cells <- FindVariableFeatures(cells, selection.method = "vst", nfeatures = 2000)
 top10 <- head(VariableFeatures(cells), 10) 
 all.genes <- rownames(cells)
 plot1 <- VariableFeaturePlot(cells)
@@ -25,17 +25,17 @@ cells <- RunPCA(cells, features = VariableFeatures(object = cells))
 
 DimHeatmap(cells, dims = 1, cells = 500, balanced = TRUE)
 
-cells <- JackStraw(cells, num.replicate = 200) # change this
+cells <- JackStraw(cells, num.replicate = 200)
 cells <- ScoreJackStraw(cells, dims = 1:20)
 JackStrawPlot(cells, dims = 1:20)
 
 cells <- FindNeighbors(cells, dims = 1:15)
-cells <- FindClusters(cells, resolution = 0.5) # change this
+cells <- FindClusters(cells, resolution = 0.5)
 cells <- RunUMAP(cells, dims = 1:15)
 
 DimPlot(cells, reduction = 'umap')
 
-markers <- FindAllMarkers(cells, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25) # ask what does this do
+markers <- FindAllMarkers(cells, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
 genes <- markers %>% group_by(cluster) %>% slice_max(n = 10, order_by = avg_log2FC)
 
 write.csv(genes, '/Users/peterwang/Downloads/Gene_Clusters_info2.csv')
