@@ -3,7 +3,7 @@ Run this in R-studios after downloading Seurat library and the cell sample. Chan
 
 Seurat can be dowloaded through the link: https://satijalab.org/seurat/ 
 
-Also download the ggplot2, dplyr, and patchwork packages
+Also download the ggplot2, dplyr, and Patchwork packages
 
 Sample sample can be downloaded by the link: https://www.10xgenomics.com/resources/datasets/20-k-mixture-of-nsclc-dt-cs-from-7-donors-3-v-3-1-3-1-standard-6-1-0
 Click 'donor 2', scroll to the bottom and click "gene expression - feature / cell matrix (per sample)"
