@@ -9,5 +9,5 @@ Sample sample can be downloaded by the link: https://www.10xgenomics.com/resourc
 Click 'donor 2', scroll to the bottom and click "gene expression - feature / cell matrix (per sample)"
 the dowload zipped file will appear as "20k_NSCLC_DTC_3p_nextgem_donor_2_count_sample_feature_bc_matrix.tar.gz" in your files. 
 Unzip it and you should have a file folder named "sample_feature_bc_matrix" with three files inside: barcodes.tsv.gz , features.tsv.gz , and matrix.mtx.gz
-Acquire the pathname of the folder through double click + OPTION + Copy "sample_feature_bc_matrix" as Pathname
+Acquire the pathname of the folder through double click + OPTION + Copy "sample_feature_bc_matrix" as Pathname.
 Paste the pathname to line 6 of the code
